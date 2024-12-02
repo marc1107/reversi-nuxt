@@ -20,7 +20,7 @@ export default {
     async logout() {
       try {
         await this.$store.dispatch('auth/logout', {});
-        await this.$router.push('/');
+        await this.$router.push('/login');
       } catch (error) {
         console.error('Logout failed:', error);
       }
