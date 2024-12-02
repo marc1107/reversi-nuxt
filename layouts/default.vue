@@ -5,6 +5,7 @@
         <nuxt-link class="nav-link" to="/">Home</nuxt-link>
         <nuxt-link class="nav-link" to="/game">Game</nuxt-link>
         <nuxt-link class="nav-link" to="/rules">Rules</nuxt-link>
+        <button class="nav-link logout-button" @click="logout">Logout</button>
       </nav>
     </header>
     <main>
@@ -12,6 +13,21 @@
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    async logout() {
+      try {
+        await this.$store.dispatch('auth/logout', {});
+        await this.$router.push('/');
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    }
+  }
+}
+</script>
 
 <style>
 /* Einfaches Styling für die App */
@@ -46,6 +62,14 @@ nav {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.logout-button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 main {
