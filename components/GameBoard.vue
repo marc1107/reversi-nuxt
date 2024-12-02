@@ -67,5 +67,6 @@ export default {
 
 .board-container {
   width: fit-content;
+  margin: 0 0;
 }
 </style>
