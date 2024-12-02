@@ -1,83 +1,115 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-app>
+    <v-main>
+      <v-container fluid class="landing-page">
+        <v-row justify="center" align="center" class="text-center">
+          <v-col cols="12">
+            <h1 class="main-header">Reversi</h1>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center" align="center">
+          <v-col cols="12" sm="10" md="8" lg="6" class="form-col">
+            <v-card elevation="5" class="form-card">
+              <v-card-title class="form-title">Enter Player Names</v-card-title>
+              <v-card-text>
+                <v-form @submit.prevent="startGame">
+                  <v-text-field label="Name Spieler 1" v-model="player1" outlined dense required></v-text-field>
+                  <v-text-field label="Name Spieler 2" v-model="player2" outlined dense required></v-text-field>
+                  <v-btn color="primary" block type="submit" class="start-btn">Spiel starten</v-btn>
+                </v-form>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+import baseUrl from "@/plugins/api";
+
 export default {
-  name: 'IndexPage'
-}
+  data() {
+    return {
+      player1: '',
+      player2: ''
+    };
+  },
+  methods: {
+    async startGame() {
+      try {
+        const response = await fetch(`${baseUrl}/playerNames/${this.player1}/${this.player2}`);
+
+        // Redirect to the game page after successful setup
+        await this.$router.push('/game');
+      } catch (error) {
+        console.error('Error setting player names:', error);
+      }
+    }
+  }
+};
 </script>
+
+<style scoped>
+.landing-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #4caf50;
+  padding: 16px;
+}
+
+.main-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-col {
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-card {
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.start-btn {
+  margin-top: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+  .main-header {
+    font-size: 2rem;
+  }
+
+  .form-card {
+    padding:15px;
+  }
+
+  .form-title{
+    font-size:
+      1.25rem;}
+}
+
+@media(max-width:
+  960px){
+  .main-header{
+    font-size:
+      2.25rem;}
+}
+</style>
