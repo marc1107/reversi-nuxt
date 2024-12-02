@@ -49,7 +49,8 @@ export default {
         console.error('Error setting player names:', error);
       }
     }
-  }
+  },
+  middleware: 'auth',
 };
 </script>
 

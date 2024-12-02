@@ -85,7 +85,8 @@ export default {
   },
   mounted() {
     this.initializeGame();
-  }
+  },
+  middleware: 'auth',
 };
 </script>
 
