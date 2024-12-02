@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="white">
       <v-container fluid class="landing-page">
         <v-row justify="center" align="center" class="text-center">
           <v-col cols="12">
@@ -79,6 +79,7 @@ export default {
 .form-card {
   border-radius: 15px;
   padding: 20px;
+  width: 300px;
 }
 
 .form-title {

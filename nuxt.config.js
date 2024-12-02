@@ -53,7 +53,18 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      name: 'Reversi',
+      short_name: 'Reversi',
+      description: 'Play Reversi',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#ffffff',
+      theme_color: '#4DBA87',
+      icon: {
+        source: 'static/icon.png', // Path to your icon file
+        sizes: [64, 120, 144, 152, 192, 384, 512], // Sizes to generate
+        purpose: ['any', 'maskable'], // Optional: Specify purposes for icons
+      },
     }
   },
 
