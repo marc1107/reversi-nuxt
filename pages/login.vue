@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="6">
+    <v-row justify="center" align="center">
+      <v-col class="login d-flex justify-center align-center">
         <v-card>
           <v-card-title>Login</v-card-title>
           <v-card-text>
@@ -57,4 +57,9 @@ export default {
 
 <style scoped>
 /* Add any specific styles here */
+.login {
+  max-width: 500px;
+  min-width: 200px;
+  margin: 0 auto;
+}
 </style>
