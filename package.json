@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/firebase": "^8.2.2",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.25.3",
+    "firebase": "^9.23.0",
+    "firebase-admin": "^13.0.1",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
