@@ -14,9 +14,9 @@
               <v-card-title class="form-title">Enter Player Names</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="startGame">
-                  <v-text-field label="Name Spieler 1" v-model="player1" outlined dense required></v-text-field>
-                  <v-text-field label="Name Spieler 2" v-model="player2" outlined dense required></v-text-field>
-                  <v-btn color="primary" block type="submit" class="start-btn">Spiel starten</v-btn>
+                  <v-text-field label="Name Player 1" v-model="player1" outlined dense required></v-text-field>
+                  <v-text-field label="Name Player 2" v-model="player2" outlined dense required></v-text-field>
+                  <v-btn color="primary" block type="submit" class="start-btn">Start Game</v-btn>
                 </v-form>
               </v-card-text>
             </v-card>
@@ -40,7 +40,8 @@ export default {
   methods: {
     async startGame() {
       try {
-        const response = await fetch(`${baseUrl}/playerNames/${this.player1}/${this.player2}`);
+        await fetch(`${baseUrl}/newGame`);
+        await fetch(`${baseUrl}/playerNames/${this.player1}/${this.player2}`);
 
         // Redirect to the game page after successful setup
         await this.$router.push('/game');

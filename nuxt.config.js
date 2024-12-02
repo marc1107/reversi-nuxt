@@ -50,7 +50,6 @@ export default {
     baseURL: 'https://reversi-play-ff3e2d23f034.herokuapp.com',
   },
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       name: 'Reversi',
@@ -59,11 +58,11 @@ export default {
       start_url: '/',
       display: 'standalone',
       background_color: '#ffffff',
-      theme_color: '#4DBA87',
+      theme_color: '#4caf50',
       icon: {
-        source: 'static/icon.png', // Path to your icon file
-        sizes: [64, 120, 144, 152, 192, 384, 512], // Sizes to generate
-        purpose: ['any', 'maskable'], // Optional: Specify purposes for icons
+        source: 'static/icon.png',
+        sizes: [64, 120, 144, 152, 192, 384, 512],
+        purpose: ['any', 'maskable'],
       },
     }
   },
