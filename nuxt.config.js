@@ -60,13 +60,7 @@ export default {
       appId: '1:387953125740:web:2ac782727ee5f4a10b6b49'
     },
     services: {
-      auth: {
-        persistence: 'local',
-        initialize: {
-          onAuthStateChangedAction: 'onAuthStateChangedAction',
-        },
-        ssr: true,
-      }
+      auth: true
     }
   },
 
