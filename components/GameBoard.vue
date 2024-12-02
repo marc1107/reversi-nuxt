@@ -1,5 +1,5 @@
 <template>
-  <v-container class="d-flex justify-center align-center">
+  <v-container class="board-container">
     <v-sheet elevation="4" class="board">
       <!-- Spielfeld-Raster -->
       <div class="board-grid">
@@ -63,5 +63,9 @@ export default {
   /* Passt sich an die Breite des Boards an */
   height: 100%;
   /* Passt sich an die Höhe des Boards an */
+}
+
+.board-container {
+  width: fit-content;
 }
 </style>

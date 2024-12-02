@@ -2,11 +2,9 @@
   <div id="app">
     <header>
       <nav>
-        <ul>
-          <li><nuxt-link to="/">Home</nuxt-link></li>
-          <li><nuxt-link to="/game">Game</nuxt-link></li>
-          <li><nuxt-link to="/rules">Rules</nuxt-link></li>
-        </ul>
+        <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+        <nuxt-link class="nav-link" to="/game">Game</nuxt-link>
+        <nuxt-link class="nav-link" to="/rules">Rules</nuxt-link>
       </nav>
     </header>
     <main>
@@ -28,6 +26,20 @@ header {
   color: white;
   padding: 1rem;
   text-align: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link:active,
+.nav-link:visited {
+  color: white;
 }
 
 nav {

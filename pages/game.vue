@@ -92,14 +92,16 @@ export default {
 <style scoped>
 .game-container {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .player-info {
   margin-bottom: 20px;
-}
-
-.border {
-  border: 10px solid black;
-  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 </style>
