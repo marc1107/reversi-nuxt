@@ -1,4 +1,4 @@
-import {googleProvider} from "@/plugins/firebase";
+import {googleProvider, githubProvider} from "@/plugins/firebase";
 
 export const state = () => ({
   user: null,
@@ -31,6 +31,14 @@ export const actions = {
       commit('setUser', user.displayName);
     } catch (error) {
       console.error('Error logging in with Google:', error.message);
+    }
+  },
+  async loginWithGithub({ commit }) {
+    try {
+      const { user } = await this.$fire.auth.signInWithPopup(githubProvider);
+      commit('setUser', user.displayName);
+    } catch (error) {
+      console.error('Error logging in with Github:', error.message);
     }
   },
   async logout({ commit }) {
