@@ -24,6 +24,7 @@
               Don't have an account?
               <router-link to="/signup">Sign up here</router-link>
             </p>
+            <v-btn @click="loginWithGoogle" color="red" class="white--text mt-3">Sign in with Google</v-btn>
           </v-card-text>
         </v-card>
       </v-col>
@@ -49,6 +50,14 @@ export default {
         await this.$router.push('/');
       } catch (error) {
         console.error('Login failed:', error);
+      }
+    },
+    async loginWithGoogle() {
+      try {
+        await this.$store.dispatch('auth/loginWithGoogle');
+        await this.$router.push('/');
+      } catch (error) {
+        console.error('Login with Google failed:', error);
       }
     }
   }
