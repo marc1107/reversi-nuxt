@@ -24,8 +24,11 @@
               Don't have an account?
               <router-link to="/signup">Sign up here</router-link>
             </p>
-            <v-btn @click="loginWithGoogle" color="white" class="google-login-button mt-3">
-              <img src="/google-login.png" alt="Google Logo" class="google-logo" />
+            <v-btn @click="loginWithGoogle" color="white" class="social-login-button mt-3">
+              <img src="/google-login.png" alt="Google Logo" class="social-logo" />
+            </v-btn>
+            <v-btn @click="loginWithGithub" color="white" class="social-login-button mt-3">
+              <img src="/github-login.png" alt="GitHub Logo" class="social-logo" />
             </v-btn>
           </v-card-text>
         </v-card>
@@ -61,6 +64,14 @@ export default {
       } catch (error) {
         console.error('Login with Google failed:', error);
       }
+    },
+    async loginWithGithub() {
+      try {
+        await this.$store.dispatch('auth/loginWithGithub');
+        await this.$router.push('/');
+      } catch (error) {
+        console.error('Login with Github failed:', error);
+      }
     }
   }
 };
@@ -74,12 +85,12 @@ export default {
   margin: 0 auto;
 }
 
-.google-logo {
+.social-logo {
   width: 20px; /* Set width to 20 pixels */
   height: 20px; /* Set height to 20 pixels */
 }
 
-.google-login-button {
+.social-login-button {
   padding: 0; /* Remove padding */
   width: 36px;
   height: 36px;
