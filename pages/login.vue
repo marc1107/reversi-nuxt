@@ -24,7 +24,9 @@
               Don't have an account?
               <router-link to="/signup">Sign up here</router-link>
             </p>
-            <v-btn @click="loginWithGoogle" color="red" class="white--text mt-3">Sign in with Google</v-btn>
+            <v-btn @click="loginWithGoogle" color="white" class="google-login-button mt-3">
+              <img src="/google-login.png" alt="Google Logo" class="google-logo" />
+            </v-btn>
           </v-card-text>
         </v-card>
       </v-col>
@@ -70,5 +72,16 @@ export default {
   max-width: 500px;
   min-width: 200px;
   margin: 0 auto;
+}
+
+.google-logo {
+  width: 20px; /* Set width to 20 pixels */
+  height: 20px; /* Set height to 20 pixels */
+}
+
+.google-login-button {
+  padding: 0; /* Remove padding */
+  width: 36px;
+  height: 36px;
 }
 </style>
