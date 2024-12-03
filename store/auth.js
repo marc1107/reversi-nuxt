@@ -1,3 +1,5 @@
+import {googleProvider} from "@/plugins/firebase";
+
 export const state = () => ({
   user: null,
   isAuthenticated: false
@@ -21,6 +23,14 @@ export const actions = {
       commit('setUser', user);
     } catch (error) {
       console.error('Error logging in:', error.message);
+    }
+  },
+  async loginWithGoogle({ commit }) {
+    try {
+      const { user } = await this.$fire.auth.signInWithPopup(googleProvider);
+      commit('setUser', user.displayName);
+    } catch (error) {
+      console.error('Error logging in with Google:', error.message);
     }
   },
   async logout({ commit }) {
